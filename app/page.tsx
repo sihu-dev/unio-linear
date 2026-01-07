@@ -1,383 +1,177 @@
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
 import { ButtonLink, PlainButtonLink, SoftButtonLink } from '@/components/elements/button'
 import { Link } from '@/components/elements/link'
-import { Logo, LogoGrid } from '@/components/elements/logo-grid'
-import { Screenshot } from '@/components/elements/screenshot'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { ChevronIcon } from '@/components/icons/chevron-icon'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { FAQsTwoColumnAccordion, Faq } from '@/components/sections/faqs-two-column-accordion'
 import { Feature, FeaturesTwoColumnWithDemos } from '@/components/sections/features-two-column-with-demos'
-import { HeroLeftAlignedWithDemo } from '@/components/sections/hero-left-aligned-with-demo'
+import { HeroSimpleCentered } from '@/components/sections/hero-simple-centered'
 import { Plan, PricingMultiTier } from '@/components/sections/pricing-multi-tier'
 import { Stat, StatsWithGraph } from '@/components/sections/stats-with-graph'
 import { Testimonial, TestimonialThreeColumnGrid } from '@/components/sections/testimonials-three-column-grid'
+import { FeaturesThreeColumn, Feature as FeatureCard } from '@/components/sections/features-three-column'
 import Image from 'next/image'
 
 export default function Page() {
   return (
     <>
-      {/* Hero */}
-      <HeroLeftAlignedWithDemo
+      {/* Hero - v7.8 김 대표 스토리 */}
+      <HeroSimpleCentered
         id="hero"
-        eyebrow={<AnnouncementBadge href="/analyze-bid" text="입찰공고 AI 분석 + 엑셀 자동화 출시" cta="체험하기" />}
-        headline="Pool SI 스마트공장, AI로 자동화하세요."
+        eyebrow={<AnnouncementBadge href="/analyze-bid" text="OTT칩 50만원 출시" cta="자세히 보기" />}
+        headline="52세 김 대표도 10분 만에 AI 공장을 갖습니다."
         subheadline={
           <p>
-            입찰공고 분석부터 견적서 생성까지. Claude AI가 3~7일 걸리던 작업을 30분 만에 완료합니다.
-            2,460개 Pool 업체를 위한 AI 통합 솔루션.
+            3,000만원 아닌 <strong>50만원</strong>. 기계는 그대로, <strong>칩만 붙입니다</strong>.
+            <br />
+            로봇 1,932대가 데이터를 못 쓰고 있습니다. 엑셀만 알면 AI를 쓸 수 있습니다.
           </p>
         }
         cta={
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <ButtonLink href="/analyze-bid" size="lg">
-              무료 체험하기
+              무료 파일럿 신청
             </ButtonLink>
-
-            <PlainButtonLink href="#features" size="lg">
-              기능 둘러보기 <ArrowNarrowRightIcon />
+            <PlainButtonLink href="#weapons" size="lg">
+              4가지 무기 보기 <ArrowNarrowRightIcon />
             </PlainButtonLink>
           </div>
         }
-        demo={
-          <>
-            <Screenshot className="rounded-md lg:hidden" wallpaper="green" placement="bottom-right">
-              <Image
-                src="/img/screenshots/1-left-1670-top-1408.webp"
-                alt=""
-                width={1670}
-                height={1408}
-                className="bg-white/75 md:hidden dark:hidden"
-              />
-              <Image
-                src="/img/screenshots/1-color-olive-left-1670-top-1408.webp"
-                alt=""
-                width={1670}
-                height={1408}
-                className="bg-black/75 not-dark:hidden md:hidden"
-              />
-              <Image
-                src="/img/screenshots/1-left-2000-top-1408.webp"
-                alt=""
-                width={2000}
-                height={1408}
-                className="bg-white/75 max-md:hidden dark:hidden"
-              />
-              <Image
-                src="/img/screenshots/1-color-olive-left-2000-top-1408.webp"
-                alt=""
-                width={2000}
-                height={1408}
-                className="bg-black/75 not-dark:hidden max-md:hidden"
-              />
-            </Screenshot>
-            <Screenshot className="rounded-lg max-lg:hidden" wallpaper="green" placement="bottom">
-              <Image
-                src="/img/screenshots/1.webp"
-                alt=""
-                className="bg-white/75 dark:hidden"
-                width={3440}
-                height={1990}
-              />
-              <Image
-                className="bg-black/75 not-dark:hidden"
-                src="/img/screenshots/1-color-olive.webp"
-                alt=""
-                width={3440}
-                height={1990}
-              />
-            </Screenshot>
-          </>
-        }
-        footer={
-          <LogoGrid>
-            <Logo>
-              <Image
-                src="/img/logos/9-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={51}
-                height={32}
-              />
-              <Image
-                src="/img/logos/9-color-white-height-32.svg"
-                className="bg-black/75 not-dark:hidden"
-                alt=""
-                width={51}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/10-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={70}
-                height={32}
-              />
-              <Image
-                src="/img/logos/10-color-white-height-32.svg"
-                className="bg-black/75 not-dark:hidden"
-                alt=""
-                width={70}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/11-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={100}
-                height={32}
-              />
-              <Image
-                src="/img/logos/11-color-white-height-32.svg"
-                className="bg-black/75 not-dark:hidden"
-                alt=""
-                width={100}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/12-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-              <Image
-                src="/img/logos/12-color-white-height-32.svg"
-                className="bg-black/75 not-dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/13-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={75}
-                height={32}
-              />
-              <Image
-                src="/img/logos/13-color-white-height-32.svg"
-                className="bg-black/75 not-dark:hidden"
-                alt=""
-                width={75}
-                height={32}
-              />
-            </Logo>
-            <Logo>
-              <Image
-                src="/img/logos/8-color-black-height-32.svg"
-                className="dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-              <Image
-                src="/img/logos/8-color-white-height-32.svg"
-                className="bg-black/75 not-dark:hidden"
-                alt=""
-                width={85}
-                height={32}
-              />
-            </Logo>
-          </LogoGrid>
-        }
       />
-      {/* Features */}
-      <FeaturesTwoColumnWithDemos
-        id="features"
-        eyebrow="핵심 기능"
-        headline="입찰부터 정산까지, Pool SI 업무의 모든 것을 AI가 처리합니다."
+
+      {/* Stats - 핵심 숫자 배지 */}
+      <StatsWithGraph
+        id="stats"
+        eyebrow="왜 지금인가"
+        headline="1,932개 공장이 AI를 기다립니다."
         subheadline={
           <p>
-            나라장터 입찰공고 분석, 견적서 자동 생성, 설비 관리, 정부 증빙 문서까지.
-            현장에서 사무실까지 모든 업무를 하나의 플랫폼에서.
+            로봇은 있지만 데이터는 없습니다. 새벽 5시 출근하는 김 대표의 현실.
+            UNIO는 기존 설비에 칩 하나로 AI를 연결합니다.
+          </p>
+        }
+      >
+        <Stat stat="1,932곳" text="로봇 보유 중소 제조업체" />
+        <Stat stat="50만원" text="OTT칩 도입 비용 (기존 3,000만원)" />
+        <Stat stat="10분" text="설치부터 AI 연결까지" />
+      </StatsWithGraph>
+
+      {/* 4가지 무기 - OTT칩, 엑셀브릿지, 도메인AI, AutoReport */}
+      <FeaturesThreeColumn
+        id="weapons"
+        eyebrow="UNIO의 4가지 무기"
+        headline="기계는 그대로, 두뇌만 바꿉니다."
+        subheadline={
+          <p>
+            OTT칩으로 연결하고, 엑셀로 분석하고, AI로 예측하고, 보고서는 자동으로.
+          </p>
+        }
+        features={
+          <>
+            <FeatureCard
+              icon={<span className="text-2xl">🔌</span>}
+              headline="OTT칩"
+              subheadline="기존 로봇/PLC에 부착. 10분 설치, 50만원. 데이터 수집 시작."
+            />
+            <FeatureCard
+              icon={<span className="text-2xl">📊</span>}
+              headline="엑셀 브릿지"
+              subheadline="익숙한 엑셀로 AI 데이터 분석. 새로운 프로그램 배울 필요 없음."
+            />
+            <FeatureCard
+              icon={<span className="text-2xl">🤖</span>}
+              headline="도메인 AI"
+              subheadline="Pool SI 전문 AI. 용접, 조립, 도장 패턴을 이해하는 맞춤형 모델."
+            />
+            <FeatureCard
+              icon={<span className="text-2xl">📝</span>}
+              headline="AutoReport"
+              subheadline="정부 증빙, 고객 리포트 자동 생성. 수기 작업 90% 감소."
+            />
+          </>
+        }
+      />
+
+      {/* Features - 기존 vs UNIO 비교 */}
+      <FeaturesTwoColumnWithDemos
+        id="features"
+        eyebrow="Before → After"
+        headline="이것이 현실입니다."
+        subheadline={
+          <p>
+            3,000만원 들여 새 시스템? 6개월 교육? 그럴 필요 없습니다.
           </p>
         }
         features={
           <>
             <Feature
               demo={
-                <Screenshot wallpaper="purple" placement="bottom-right">
-                  <Image
-                    src="/img/screenshots/1-left-1000-top-800.webp"
-                    alt=""
-                    className="bg-white/75 sm:hidden dark:hidden"
-                    width={1000}
-                    height={800}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-left-1000-top-800.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden sm:hidden"
-                    width={1000}
-                    height={800}
-                  />
-                  <Image
-                    src="/img/screenshots/1-left-1800-top-660.webp"
-                    alt=""
-                    className="bg-white/75 max-sm:hidden lg:hidden dark:hidden"
-                    width={1800}
-                    height={660}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-left-1800-top-660.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden max-sm:hidden lg:hidden"
-                    width={1800}
-                    height={660}
-                  />
-                  <Image
-                    src="/img/screenshots/1-left-1300-top-1300.webp"
-                    alt=""
-                    className="bg-white/75 max-lg:hidden xl:hidden dark:hidden"
-                    width={1300}
-                    height={1300}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-left-1300-top-1300.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden max-lg:hidden xl:hidden"
-                    width={1300}
-                    height={1300}
-                  />
-                  <Image
-                    src="/img/screenshots/1-left-1800-top-1250.webp"
-                    alt=""
-                    className="bg-white/75 max-xl:hidden dark:hidden"
-                    width={1800}
-                    height={1250}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-left-1800-top-1250.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden max-xl:hidden"
-                    width={1800}
-                    height={1250}
-                  />
-                </Screenshot>
+                <div className="flex h-full items-center justify-center rounded-2xl bg-gradient-to-br from-red-500/10 to-red-500/5 p-8">
+                  <div className="text-center">
+                    <p className="mb-2 text-sm text-red-400">Before</p>
+                    <p className="text-4xl font-bold text-red-500">3,000만원</p>
+                    <p className="mt-2 text-gray-400">MES 도입 비용</p>
+                    <p className="mt-4 text-2xl font-bold text-red-400">6개월</p>
+                    <p className="text-gray-400">교육 기간</p>
+                  </div>
+                </div>
               }
-              headline="입찰공고 AI 분석"
+              headline="기존 방식의 한계"
               subheadline={
                 <p>
-                  나라장터, 조달청 입찰공고를 붙여넣으면 AI가 사업개요, 요구설비, 평가기준, 제출서류를
-                  자동 추출합니다. 견적서 템플릿까지 한 번에.
+                  비싼 MES 시스템, 긴 교육 기간, 복잡한 설정.
+                  결국 엑셀로 돌아가는 현장. 데이터는 여전히 단절.
                 </p>
               }
               cta={
-                <Link href="/analyze-bid">
-                  지금 체험하기 <ArrowNarrowRightIcon />
+                <Link href="#proof">
+                  실제 사례 보기 <ArrowNarrowRightIcon />
                 </Link>
               }
             />
             <Feature
               demo={
-                <Screenshot wallpaper="blue" placement="bottom-left">
-                  <Image
-                    src="/img/screenshots/1-right-1000-top-800.webp"
-                    alt=""
-                    className="bg-white/75 sm:hidden dark:hidden"
-                    width={1000}
-                    height={800}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-right-1000-top-800.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden sm:hidden"
-                    width={1000}
-                    height={800}
-                  />
-                  <Image
-                    src="/img/screenshots/1-right-1800-top-660.webp"
-                    alt=""
-                    className="bg-white/75 max-sm:hidden lg:hidden dark:hidden"
-                    width={1800}
-                    height={660}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-right-1800-top-660.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden max-sm:hidden lg:hidden"
-                    width={1800}
-                    height={660}
-                  />
-                  <Image
-                    src="/img/screenshots/1-right-1300-top-1300.webp"
-                    alt=""
-                    className="bg-white/75 max-lg:hidden xl:hidden dark:hidden"
-                    width={1300}
-                    height={1300}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-right-1300-top-1300.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden max-lg:hidden xl:hidden"
-                    width={1300}
-                    height={1300}
-                  />
-                  <Image
-                    src="/img/screenshots/1-right-1800-top-1250.webp"
-                    alt=""
-                    className="bg-white/75 max-xl:hidden dark:hidden"
-                    width={1800}
-                    height={1250}
-                  />
-                  <Image
-                    src="/img/screenshots/1-color-olive-right-1800-top-1250.webp"
-                    alt=""
-                    className="bg-black/75 not-dark:hidden max-xl:hidden"
-                    width={1800}
-                    height={1250}
-                  />
-                </Screenshot>
+                <div className="flex h-full items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-8">
+                  <div className="text-center">
+                    <p className="mb-2 text-sm text-emerald-400">After (UNIO)</p>
+                    <p className="text-4xl font-bold text-emerald-500">50만원</p>
+                    <p className="mt-2 text-gray-400">OTT칩 비용</p>
+                    <p className="mt-4 text-2xl font-bold text-emerald-400">10분</p>
+                    <p className="text-gray-400">설치 시간</p>
+                  </div>
+                </div>
               }
-              headline="스마트 설비 관리"
+              headline="UNIO의 해답"
               subheadline={
-                <p>로봇, 컨베이어, 센서 등 Pool 설비를 실시간 모니터링. AI가 예방 정비 시점을 예측하고 고장을 사전에 방지합니다.</p>
+                <p>
+                  기계는 그대로. 칩만 붙입니다. 엑셀만 알면 AI를 씁니다.
+                  52세 김 대표도 10분 만에 AI 공장을 갖습니다.
+                </p>
               }
               cta={
-                <Link href="#pricing">
-                  요금제 보기 <ArrowNarrowRightIcon />
+                <Link href="/analyze-bid">
+                  무료 체험하기 <ArrowNarrowRightIcon />
                 </Link>
               }
             />
           </>
         }
       />
-      {/* Stats */}
-      <StatsWithGraph
-        id="stats"
-        eyebrow="검증된 성과"
-        headline="Pool SI 업계 최초, Claude AI 기반 자동화 솔루션."
-        subheadline={
-          <p>
-            2,460개 Pool 업체 중 78.5%가 AI 솔루션 미도입 상태.
-            UNIO는 입찰 분석, 견적 생성, 정부 증빙까지 모든 업무를 AI로 자동화하여
-            작업 시간을 90% 이상 단축합니다.
-          </p>
-        }
-      >
-        <Stat stat="30분" text="입찰공고 분석 + 견적서 생성 완료 (기존 3~7일)" />
-        <Stat stat="78.5%" text="Pool 업체 AI 미도입율 — 지금이 도입 적기" />
-      </StatsWithGraph>
-      {/* Testimonial */}
+
+      {/* Testimonial - 3개 실증 파트너 */}
       <TestimonialThreeColumnGrid
-        id="testimonial"
-        headline="고객사 도입 사례"
-        subheadline={<p>Pool SI 업체들이 UNIO를 도입하고 경험한 변화입니다.</p>}
+        id="proof"
+        headline="실증 완료. 숫자로 증명합니다."
+        subheadline={<p>3개 파트너사에서 검증된 결과입니다.</p>}
       >
         <Testimonial
           quote={
             <p>
-              입찰공고 분석에 3일씩 걸리던 작업이 30분 만에 끝납니다.
-              견적서까지 자동 생성되니 영업팀 업무 효율이 크게 올랐어요.
+              <strong className="text-emerald-400">불량률 67% 감소.</strong>
+              <br />
+              용접 로봇에 OTT칩 부착 후, AI가 불량 패턴을 학습.
+              수기 검사 대비 정확도가 크게 향상됐습니다.
             </p>
           }
           img={
@@ -389,14 +183,16 @@ export default function Page() {
               height={160}
             />
           }
-          name="김영호"
-          byline="대표 / 한솔 FA"
+          name="CM TECH"
+          byline="용접 자동화 전문"
         />
         <Testimonial
           quote={
             <p>
-              정부 지원사업 증빙 서류 작성이 가장 힘들었는데,
-              AI가 자동으로 양식에 맞춰 생성해주니 행정 업무가 절반으로 줄었습니다.
+              <strong className="text-emerald-400">가동률 23% 향상.</strong>
+              <br />
+              예방 정비 AI 도입 후 다운타임 감소.
+              엑셀 리포트로 현장 관리자도 쉽게 사용합니다.
             </p>
           }
           img={
@@ -408,14 +204,16 @@ export default function Page() {
               height={160}
             />
           }
-          name="박지현"
-          byline="관리팀장 / 스마트 로보틱스"
+          name="벽산"
+          byline="건자재 제조"
         />
         <Testimonial
           quote={
             <p>
-              설비 고장 예측 기능 덕분에 다운타임을 80% 이상 줄였습니다.
-              예방 정비로 비용도 절감되고 고객 신뢰도 높아졌어요.
+              <strong className="text-emerald-400">외주비 60% 절감.</strong>
+              <br />
+              AutoReport로 정부 증빙 서류 자동화.
+              월 40시간 수기 작업이 4시간으로 줄었습니다.
             </p>
           }
           img={
@@ -427,132 +225,76 @@ export default function Page() {
               height={160}
             />
           }
-          name="이승훈"
-          byline="기술이사 / 케이풀테크"
-        />
-        <Testimonial
-          quote={
-            <p>
-              월간 고객 리포트 작성에 이틀씩 걸렸는데,
-              이제는 버튼 한 번으로 자동 생성됩니다. 고객 만족도도 올랐어요.
-            </p>
-          }
-          img={
-            <Image
-              src="/img/avatars/12-size-160.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={160}
-              height={160}
-            />
-          }
-          name="최민수"
-          byline="영업팀장 / 우진 시스템"
-        />
-        <Testimonial
-          quote={
-            <p>
-              1인 사업자인데 UNIO 덕분에 대기업 수준의 제안서와 보고서를 만들 수 있게 됐습니다.
-              영업 경쟁력이 확 올랐어요.
-            </p>
-          }
-          img={
-            <Image
-              src="/img/avatars/11-size-160.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={160}
-              height={160}
-            />
-          }
-          name="정우성"
-          byline="대표 / JW 오토메이션"
-        />
-        <Testimonial
-          quote={
-            <p>
-              Claude AI 기반이라 분석 정확도가 다릅니다.
-              입찰 적합도 분석으로 수주율이 30% 이상 올랐습니다.
-            </p>
-          }
-          img={
-            <Image
-              src="/img/avatars/14-size-160.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={160}
-              height={160}
-            />
-          }
-          name="한동훈"
-          byline="사업본부장 / 미래 엔지니어링"
+          name="삼웅철강"
+          byline="철강 가공"
         />
       </TestimonialThreeColumnGrid>
+
       {/* FAQs */}
       <FAQsTwoColumnAccordion id="faqs" headline="자주 묻는 질문">
         <Faq
           id="faq-1"
-          question="무료 체험은 어떻게 시작하나요?"
-          answer="회원가입 후 14일간 모든 기능을 무료로 체험하실 수 있습니다. 신용카드 등록 없이 바로 시작하실 수 있으며, 체험 기간 종료 전 이메일로 안내드립니다."
+          question="OTT칩은 어떤 로봇/설비에 부착 가능한가요?"
+          answer="국내외 주요 로봇(화낙, ABB, 쿠카, 야스카와) 및 PLC(지멘스, 미쓰비시, LS)에 모두 호환됩니다. 10년 이상 된 구형 설비도 지원합니다."
         />
         <Faq
           id="faq-2"
-          question="어떤 AI 모델을 사용하나요?"
-          answer="UNIO는 Anthropic의 Claude Sonnet 4 모델을 사용합니다. 입찰공고 분석, 문서 생성, 설비 예측 등 각 기능에 최적화된 프롬프트로 높은 정확도를 제공합니다."
+          question="엑셀만 알면 정말 AI를 쓸 수 있나요?"
+          answer="네. 엑셀 브릿지가 AI 데이터를 익숙한 엑셀 형식으로 변환합니다. 피벗 테이블, 필터 등 기존에 쓰던 기능 그대로 AI 분석 결과를 활용할 수 있습니다."
         />
         <Faq
           id="faq-3"
-          question="기존 시스템과 연동이 가능한가요?"
-          answer="API 연동을 통해 ERP, MES 등 기존 시스템과 연결할 수 있습니다. Pro 플랜 이상에서 전용 API 키가 제공되며, 기술팀이 도입 지원을 해드립니다."
+          question="50만원 외에 추가 비용이 있나요?"
+          answer="OTT칩 50만원은 1회성 구매 비용입니다. 클라우드 분석 서비스는 월 9만9천원부터 시작하며, 무료 파일럿 기간 동안 모든 기능을 체험하실 수 있습니다."
         />
         <Faq
           id="faq-4"
-          question="데이터 보안은 어떻게 관리되나요?"
-          answer="모든 데이터는 암호화되어 안전하게 저장됩니다. AWS 서울 리전을 사용하며, SOC 2 인증을 준비 중입니다. 고객 데이터는 AI 학습에 사용되지 않습니다."
+          question="설치에 공장 가동을 중단해야 하나요?"
+          answer="아니요. OTT칩은 기존 설비에 부착하는 방식이라 생산 중단 없이 10분 내 설치가 완료됩니다. 야간이나 주말 설치도 가능합니다."
         />
       </FAQsTwoColumnAccordion>
-      {/* Pricing */}
+
+      {/* Pricing - v7.8 기준 */}
       <PricingMultiTier
         id="pricing"
-        headline="Pool SI 규모에 맞는 요금제"
+        headline="투명한 가격, 확실한 ROI"
         plans={
           <>
             <Plan
-              name="Starter"
-              price="₩99,000"
-              period="/월"
-              subheadline={<p>소규모 Pool SI 업체를 위한 기본 플랜</p>}
+              name="OTT칩"
+              price="₩50만원"
+              period="1회"
+              subheadline={<p>하드웨어 구매 (로봇/PLC당 1개)</p>}
               features={[
-                '입찰공고 AI 분석 (월 20건)',
-                '견적서 자동 생성',
-                '기본 리포트 템플릿',
-                '이메일 지원',
-                '14일 무료 체험',
+                '10분 설치',
+                '모든 로봇/PLC 호환',
+                '실시간 데이터 수집',
+                '1년 무상 AS',
+                '기술 지원 포함',
               ]}
               cta={
                 <SoftButtonLink href="/analyze-bid" size="lg">
-                  무료 체험 시작
+                  견적 문의
                 </SoftButtonLink>
               }
             />
             <Plan
-              name="Growth"
-              price="₩299,000"
+              name="UNIO Cloud"
+              price="₩99,000"
               period="/월"
-              subheadline={<p>성장하는 Pool SI 팀을 위한 확장 플랜</p>}
+              subheadline={<p>AI 분석 + 리포트 자동화</p>}
               badge="추천"
               features={[
-                'Starter 모든 기능 포함',
-                '입찰공고 무제한 분석',
-                '정부 증빙 문서 자동화',
-                '설비 관리 대시보드',
-                '월간 고객 리포트 생성',
-                '예방 정비 AI 분석',
+                'OTT칩 데이터 연동',
+                '엑셀 브릿지 무제한',
+                '도메인 AI 분석',
+                'AutoReport 자동화',
+                '입찰공고 AI 분석',
                 '전화 + 카카오톡 지원',
               ]}
               cta={
                 <ButtonLink href="/analyze-bid" size="lg">
-                  무료 체험 시작
+                  무료 파일럿 시작
                 </ButtonLink>
               }
             />
@@ -560,41 +302,41 @@ export default function Page() {
               name="Enterprise"
               price="맞춤"
               period="견적"
-              subheadline={<p>대규모 Pool SI 업체 및 파트너사를 위한 맞춤 플랜</p>}
+              subheadline={<p>대규모 공장 및 파트너사</p>}
               features={[
-                'Growth 모든 기능 포함',
-                'ERP/MES 시스템 연동',
-                '전용 API 키 제공',
-                '커스텀 리포트 템플릿',
+                'Cloud 모든 기능 포함',
+                '온프레미스 설치 옵션',
+                'ERP/MES 연동',
+                '전용 AI 모델 학습',
                 '전담 기술 매니저',
-                '온사이트 교육',
                 'SLA 보장',
               ]}
               cta={
                 <SoftButtonLink href="#" size="lg">
-                  문의하기
+                  파트너 문의
                 </SoftButtonLink>
               }
             />
           </>
         }
       />
+
       {/* Call To Action */}
       <CallToActionSimple
         id="call-to-action"
-        headline="Pool SI 업무, AI로 혁신할 준비 되셨나요?"
+        headline="김 대표처럼 10분 만에 AI 공장을 만드세요."
         subheadline={
           <p>
-            2,460개 Pool 업체 중 78.5%가 아직 AI를 도입하지 않았습니다.
-            지금 UNIO와 함께 업계 선두로 나아가세요.
+            1,932개 공장이 아직 AI를 못 쓰고 있습니다.
+            <br />
+            50만원으로 시작하는 스마트공장. 지금 무료 파일럿을 신청하세요.
           </p>
         }
         cta={
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <ButtonLink href="/analyze-bid" size="lg">
-              무료 체험 시작
+              무료 파일럿 신청
             </ButtonLink>
-
             <PlainButtonLink href="#pricing" size="lg">
               요금제 보기 <ChevronIcon />
             </PlainButtonLink>
