@@ -104,72 +104,79 @@ const KanbanColumnComponent: React.FC<{
 export const KanbanBoard: React.FC = () => {
   const [columns, setColumns] = useState<KanbanColumn[]>([
     {
-      id: 'discovery',
-      title: 'Discovery',
+      id: 'request',
+      title: '요청접수',
       color: 'bg-blue-500',
       items: [
         {
           id: '1',
-          title: 'Research new ML models for demand forecasting',
-          assignee: 'Alex',
+          title: '용접라인 불량 점검',
+          assignee: '효성정밀',
           priority: 'high',
-          dueDate: 'Jan 15'
+          dueDate: '1월 15일'
         },
         {
           id: '2',
-          title: 'Analyze competitor platforms',
-          assignee: 'Sam',
+          title: '도장 라인 색차 분석',
+          assignee: '삼화테크',
           priority: 'medium',
-          dueDate: 'Jan 20'
+          dueDate: '1월 18일'
         }
       ]
     },
     {
-      id: 'accepted',
-      title: 'Accepted',
+      id: 'analyzing',
+      title: 'AI분석중',
       color: 'bg-yellow-500',
       items: [
         {
           id: '3',
-          title: 'Implement batch processing API',
-          assignee: 'Jordan',
+          title: 'CM TECH 유량계 교정',
+          assignee: 'CM TECH',
           priority: 'high',
-          dueDate: 'Jan 12'
+          dueDate: '1월 12일'
         },
         {
           id: '4',
-          title: 'Design dashboard UI components',
-          assignee: 'Casey',
+          title: '프레스 진동 패턴 분석',
+          assignee: '대원산업',
           priority: 'medium',
-          dueDate: 'Jan 18'
-        },
-        {
-          id: '5',
-          title: 'Set up monitoring and alerting',
-          assignee: 'Taylor',
-          priority: 'low',
-          dueDate: 'Jan 25'
+          dueDate: '1월 16일'
         }
       ]
     },
     {
-      id: 'kicked_off',
-      title: 'Kicked off',
+      id: 'in_progress',
+      title: '작업진행',
+      color: 'bg-purple-500',
+      items: [
+        {
+          id: '5',
+          title: '삼정테크 로봇 세팅',
+          assignee: '삼정테크',
+          priority: 'high',
+          dueDate: '1월 10일'
+        },
+        {
+          id: '6',
+          title: 'CNC 온도 보정',
+          assignee: '금강기계',
+          priority: 'medium',
+          dueDate: '1월 14일'
+        }
+      ]
+    },
+    {
+      id: 'completed',
+      title: '완료',
       color: 'bg-green-500',
       items: [
         {
-          id: '6',
-          title: 'Database schema optimization',
-          assignee: 'Morgan',
-          priority: 'high',
-          dueDate: 'Jan 10'
-        },
-        {
           id: '7',
-          title: 'Authentication integration',
-          assignee: 'Alex',
-          priority: 'high',
-          dueDate: 'Jan 14'
+          title: '성진산업 품질 리포트',
+          assignee: '성진산업',
+          priority: 'low',
+          dueDate: '1월 8일'
         }
       ]
     }
