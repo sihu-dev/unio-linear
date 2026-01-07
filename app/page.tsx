@@ -29,10 +29,14 @@ export default function Page() {
           </p>
         }
         cta={
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <ButtonLink href="/analyze-bid" size="lg">
               무료 파일럿 신청
             </ButtonLink>
+
+            <SoftButtonLink href="/dashboard" size="lg">
+              대시보드 체험
+            </SoftButtonLink>
 
             <PlainButtonLink href="#features" size="lg">
               4가지 무기 보기 <ArrowNarrowRightIcon />
