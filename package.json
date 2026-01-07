@@ -1,32 +1,45 @@
 {
   "name": "unio-linear",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "plugins": [
+      "prettier-plugin-organize-imports",
+      "prettier-plugin-tailwindcss"
+    ],
+    "tailwindStylesheet": "./app/globals.css",
+    "tailwindFunctions": [
+      "clsx"
+    ]
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.9",
-    "@heroicons/react": "^2.2.0",
+    "@anthropic-ai/sdk": "^0.71.2",
+    "@tailwindplus/elements": "^1.0.21",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.0.0",
-    "lucide-react": "^0.468.0",
-    "next": "15.5.9",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "exceljs": "^4.4.0",
+    "next": "^16",
+    "react": "^19",
+    "react-dom": "^19",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@types/node": "^22",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.5.9",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "eslint-config-next": "^16",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "typescript": "^5"
   }
 }
