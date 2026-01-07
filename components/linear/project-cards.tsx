@@ -96,28 +96,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 export const ProjectCards: React.FC = () => {
   const projects: ProjectCardProps[] = [
     {
-      title: 'Pool AI',
-      description: 'Direct AI integration for 50+ manufacturing companies',
-      icon: <BarChart3 className="w-5 h-5" />,
-      progress: 65,
-      status: 'in_progress',
-      itemCount: 24
-    },
-    {
-      title: 'Smart Factory',
-      description: 'Factory automation and monitoring dashboard',
+      title: 'OTT칩 개발',
+      description: '2세대 설비를 10분만에 IoT화하는 핵심 하드웨어',
       icon: <Factory className="w-5 h-5" />,
-      progress: 45,
-      status: 'in_progress',
-      itemCount: 18
-    },
-    {
-      title: 'Claude API',
-      description: 'Complete Claude ecosystem integration 11/11',
-      icon: <Zap className="w-5 h-5" />,
       progress: 100,
       status: 'completed',
-      itemCount: 11
+      itemCount: 8
+    },
+    {
+      title: '엑셀 브릿지',
+      description: '6개 시트 자동 동기화로 데이터 수집 자동화',
+      icon: <BarChart3 className="w-5 h-5" />,
+      progress: 85,
+      status: 'in_progress',
+      itemCount: 12
+    },
+    {
+      title: 'AI 엔진',
+      description: '85% 불량 예측 정확도 달성 - 도메인 특화 AI',
+      icon: <Zap className="w-5 h-5" />,
+      progress: 92,
+      status: 'in_progress',
+      itemCount: 15
     }
   ];
 
