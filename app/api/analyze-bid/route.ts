@@ -8,6 +8,8 @@ import { NextRequest, NextResponse } from 'next/server'
 const ERROR_CODES = {
   RATE_LIMITED: 'RATE_LIMITED',
   INVALID_INPUT: 'INVALID_INPUT',
+  INVALID_JSON: 'INVALID_JSON',
+  INVALID_CONTENT_TYPE: 'INVALID_CONTENT_TYPE',
   ANALYSIS_FAILED: 'ANALYSIS_FAILED',
   INVALID_FORMAT: 'INVALID_FORMAT',
   SERVER_ERROR: 'SERVER_ERROR',
@@ -17,6 +19,8 @@ const ERROR_CODES = {
 const ERROR_MESSAGES: Record<string, string> = {
   [ERROR_CODES.RATE_LIMITED]: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
   [ERROR_CODES.INVALID_INPUT]: '입찰 공고 내용이 너무 짧습니다. 최소 50자 이상 입력해주세요.',
+  [ERROR_CODES.INVALID_JSON]: '요청 본문이 올바른 JSON 형식이 아닙니다.',
+  [ERROR_CODES.INVALID_CONTENT_TYPE]: 'Content-Type은 application/json이어야 합니다.',
   [ERROR_CODES.ANALYSIS_FAILED]: '분석 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.',
   [ERROR_CODES.INVALID_FORMAT]: '지원하지 않는 출력 형식입니다.',
   [ERROR_CODES.SERVER_ERROR]: '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.',
@@ -49,7 +53,33 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    const { bidText, outputFormat = 'json' } = await req.json()
+    // Content-Type validation
+    const contentType = req.headers.get('content-type')
+    if (!contentType?.includes('application/json')) {
+      return NextResponse.json(
+        {
+          error: ERROR_MESSAGES[ERROR_CODES.INVALID_CONTENT_TYPE],
+          code: ERROR_CODES.INVALID_CONTENT_TYPE,
+        },
+        { status: 415 }
+      )
+    }
+
+    // Parse JSON body with error handling
+    let body: { bidText?: string; outputFormat?: string }
+    try {
+      body = await req.json()
+    } catch {
+      return NextResponse.json(
+        {
+          error: ERROR_MESSAGES[ERROR_CODES.INVALID_JSON],
+          code: ERROR_CODES.INVALID_JSON,
+        },
+        { status: 400 }
+      )
+    }
+
+    const { bidText, outputFormat = 'json' } = body
 
     if (!bidText || bidText.trim().length < 50) {
       return NextResponse.json(
@@ -111,8 +141,11 @@ export async function POST(req: NextRequest) {
       },
       { status: 400 }
     )
-  } catch (_error) {
-    // Internal error - return safe message to client
+  } catch (error) {
+    // Log internal error for debugging (server-side only)
+    console.error('[Analyze-Bid] Server error:', error instanceof Error ? error.message : 'Unknown error')
+
+    // Return safe message to client
     return NextResponse.json(
       {
         error: ERROR_MESSAGES[ERROR_CODES.SERVER_ERROR],

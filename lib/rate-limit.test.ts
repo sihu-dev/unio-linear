@@ -1,4 +1,8 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
+
+// Mock server-only before importing the module
+vi.mock('server-only', () => ({}))
+
 import { checkRateLimit, getClientIdentifier } from './rate-limit'
 
 describe('rate-limit', () => {

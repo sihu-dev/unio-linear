@@ -1,5 +1,6 @@
 // lib/rate-limit.ts
 // Simple in-memory rate limiter for API protection
+import 'server-only'
 
 interface RateLimitEntry {
   count: number
