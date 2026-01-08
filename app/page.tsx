@@ -51,6 +51,7 @@ export default function Page() {
                 alt="UNIO 대시보드"
                 width={1670}
                 height={1408}
+                priority
                 className="bg-white/75 md:hidden dark:hidden"
               />
               <Image
@@ -58,6 +59,7 @@ export default function Page() {
                 alt="UNIO 대시보드"
                 width={1670}
                 height={1408}
+                priority
                 className="bg-black/75 not-dark:hidden md:hidden"
               />
               <Image
@@ -65,6 +67,7 @@ export default function Page() {
                 alt="UNIO 대시보드"
                 width={2000}
                 height={1408}
+                priority
                 className="bg-white/75 max-md:hidden dark:hidden"
               />
               <Image
@@ -72,6 +75,7 @@ export default function Page() {
                 alt="UNIO 대시보드"
                 width={2000}
                 height={1408}
+                priority
                 className="bg-black/75 not-dark:hidden max-md:hidden"
               />
             </Screenshot>
@@ -82,6 +86,7 @@ export default function Page() {
                 className="bg-white/75 dark:hidden"
                 width={3440}
                 height={1990}
+                priority
               />
               <Image
                 className="bg-black/75 not-dark:hidden"
@@ -89,6 +94,7 @@ export default function Page() {
                 alt="UNIO 대시보드"
                 width={3440}
                 height={1990}
+                priority
               />
             </Screenshot>
           </>
