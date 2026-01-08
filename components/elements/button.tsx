@@ -6,6 +6,9 @@ const sizes = {
   lg: 'px-4 py-2',
 }
 
+const focusClasses = 'focus:outline-none focus-visible:ring-2 focus-visible:ring-olive-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-olive-950'
+const transitionClasses = 'transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] active:scale-[0.98]'
+
 export function Button({
   size = 'md',
   type = 'button',
@@ -21,9 +24,11 @@ export function Button({
       type={type}
       className={clsx(
         'inline-flex shrink-0 items-center justify-center gap-1 rounded-full text-sm/7 font-medium',
+        focusClasses,
+        transitionClasses,
         color === 'dark/light' &&
           'bg-olive-950 text-white hover:bg-olive-800 dark:bg-olive-300 dark:text-olive-950 dark:hover:bg-olive-200',
-        color === 'light' && 'hover bg-white text-olive-950 hover:bg-olive-100 dark:bg-olive-100 dark:hover:bg-white',
+        color === 'light' && 'bg-white text-olive-950 hover:bg-olive-100 dark:bg-olive-100 dark:hover:bg-white',
         sizes[size],
         className,
       )}
@@ -48,9 +53,11 @@ export function ButtonLink({
       href={href}
       className={clsx(
         'inline-flex shrink-0 items-center justify-center gap-1 rounded-full text-sm/7 font-medium',
+        focusClasses,
+        transitionClasses,
         color === 'dark/light' &&
           'bg-olive-950 text-white hover:bg-olive-800 dark:bg-olive-300 dark:text-olive-950 dark:hover:bg-olive-200',
-        color === 'light' && 'hover bg-white text-olive-950 hover:bg-olive-100 dark:bg-olive-100 dark:hover:bg-white',
+        color === 'light' && 'bg-white text-olive-950 hover:bg-olive-100 dark:bg-olive-100 dark:hover:bg-white',
         sizes[size],
         className,
       )}
@@ -72,6 +79,8 @@ export function SoftButton({
       type={type}
       className={clsx(
         'inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-olive-950/10 text-sm/7 font-medium text-olive-950 hover:bg-olive-950/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/20',
+        focusClasses,
+        transitionClasses,
         sizes[size],
         className,
       )}
@@ -94,6 +103,8 @@ export function SoftButtonLink({
       href={href}
       className={clsx(
         'inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-olive-950/10 text-sm/7 font-medium text-olive-950 hover:bg-olive-950/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/20',
+        focusClasses,
+        transitionClasses,
         sizes[size],
         className,
       )}
@@ -117,6 +128,8 @@ export function PlainButton({
       type={type}
       className={clsx(
         'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm/7 font-medium',
+        focusClasses,
+        transitionClasses,
         color === 'dark/light' && 'text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10',
         color === 'light' && 'text-white hover:bg-white/15 dark:hover:bg-white/10',
         sizes[size],
@@ -143,6 +156,8 @@ export function PlainButtonLink({
       href={href}
       className={clsx(
         'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm/7 font-medium',
+        focusClasses,
+        transitionClasses,
         color === 'dark/light' && 'text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10',
         color === 'light' && 'text-white hover:bg-white/15 dark:hover:bg-white/10',
         sizes[size],

@@ -25,9 +25,11 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
+    "@headlessui/react": "^2.2.9",
     "@tailwindplus/elements": "^1.0.21",
     "clsx": "^2.1.1",
     "exceljs": "^4.4.0",
+    "framer-motion": "^12.24.10",
     "next": "^16",
     "react": "^19",
     "react-dom": "^19",

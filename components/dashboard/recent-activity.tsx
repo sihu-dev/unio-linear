@@ -19,9 +19,9 @@ export function RecentActivity() {
   ]
 
   return (
-    <div className="rounded-xl border border-olive-950/10 bg-white dark:border-white/10 dark:bg-white/5">
+    <div className="surface-card">
       <div className="border-b border-olive-950/10 p-6 dark:border-white/10">
-        <h3 className="font-semibold text-olive-950 dark:text-white">최근 활동</h3>
+        <h3 className="font-semibold text-olive-950 dark:text-white linear-tracking">최근 활동</h3>
       </div>
       <ul className="divide-y divide-olive-950/10 dark:divide-white/10" role="list" aria-label="최근 활동 목록">
         {activities.map((activity) => (
@@ -43,7 +43,7 @@ export function RecentActivity() {
         ))}
       </ul>
       <div className="border-t border-olive-950/10 p-4 dark:border-white/10">
-        <button type="button" className="text-sm font-medium text-[#5E6AD2] hover:underline">
+        <button type="button" className="text-sm font-medium text-linear-purple hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-linear-purple focus-visible:ring-offset-2 rounded">
           모든 활동 보기 →
         </button>
       </div>

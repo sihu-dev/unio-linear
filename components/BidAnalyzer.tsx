@@ -3,6 +3,10 @@
 
 import { useCallback, useState } from 'react'
 import type { BidAnalysisResult } from '@/types'
+import { Button } from '@/components/catalyst/button'
+import { Badge } from '@/components/catalyst/badge'
+import { Textarea, Checkbox } from '@/components/catalyst/input'
+import { Card, CardHeader, CardContent } from '@/components/catalyst/card'
 
 export function BidAnalyzer() {
   const [bidText, setBidText] = useState('')
@@ -65,13 +69,13 @@ export function BidAnalyzer() {
   const getFitnessColor = (fitness: string) => {
     switch (fitness) {
       case '상':
-        return 'text-emerald-600 bg-emerald-500/10 dark:text-emerald-400 dark:bg-emerald-400/10'
+        return 'success' as const
       case '중':
-        return 'text-amber-600 bg-amber-500/10 dark:text-amber-400 dark:bg-amber-400/10'
+        return 'warning' as const
       case '하':
-        return 'text-red-600 bg-red-500/10 dark:text-red-400 dark:bg-red-400/10'
+        return 'danger' as const
       default:
-        return 'text-olive-600 bg-olive-500/10 dark:text-olive-400 dark:bg-olive-400/10'
+        return 'default' as const
     }
   }
 
@@ -86,83 +90,56 @@ export function BidAnalyzer() {
         </p>
       </div>
 
-      <div className="mb-6 rounded-xl border border-olive-200 bg-white p-6 dark:border-olive-800 dark:bg-olive-900">
-        <label
-          htmlFor="bid-text-input"
-          className="mb-2 block text-sm font-medium text-olive-700 dark:text-olive-300"
-        >
-          입찰 공고 내용
-        </label>
-        <textarea
-          id="bid-text-input"
-          value={bidText}
-          onChange={(e) => setBidText(e.target.value)}
-          placeholder="나라장터, 조달청 등의 입찰 공고 내용을 복사해서 붙여넣으세요..."
-          aria-describedby={error ? 'bid-error-message' : undefined}
-          aria-invalid={!!error}
-          className="h-48 w-full resize-none rounded-lg border border-olive-300 bg-olive-50 p-4 text-olive-950 placeholder-olive-400 focus:outline-none focus:ring-2 focus:ring-olive-500 dark:border-olive-700 dark:bg-olive-800 dark:text-white dark:placeholder-olive-500"
-        />
-
-        <div className="mt-4 flex gap-3">
-          <button
-            type="button"
-            onClick={handleAnalyze}
-            disabled={loading || !bidText.trim()}
-            aria-busy={loading}
-            className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-olive-950 px-6 py-3 font-semibold text-white transition-colors hover:bg-olive-800 disabled:cursor-not-allowed disabled:bg-olive-300 dark:bg-olive-100 dark:text-olive-950 dark:hover:bg-olive-200 dark:disabled:bg-olive-800 dark:disabled:text-olive-600"
+      <Card className="mb-6">
+        <CardContent>
+          <label
+            htmlFor="bid-text-input"
+            className="mb-2 block text-sm font-medium text-olive-700 dark:text-olive-300"
           >
-            {loading ? (
-              <>
-                <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    fill="none"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  />
-                </svg>
-                <span>분석 중...</span>
-              </>
-            ) : (
-              <span>AI 분석 시작</span>
-            )}
-          </button>
+            입찰 공고 내용
+          </label>
+          <Textarea
+            id="bid-text-input"
+            value={bidText}
+            onChange={(e) => setBidText(e.target.value)}
+            placeholder="나라장터, 조달청 등의 입찰 공고 내용을 복사해서 붙여넣으세요..."
+            error={!!error}
+            errorMessage={error || undefined}
+            className="min-h-[200px]"
+          />
 
-          {result && (
-            <button
-              type="button"
-              onClick={handleDownloadExcel}
-              disabled={loading}
-              aria-label="분석 결과 엑셀 파일로 다운로드"
-              className="flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-emerald-500 disabled:bg-olive-300 dark:disabled:bg-olive-700"
+          <div className="mt-4 flex gap-3">
+            <Button
+              onClick={handleAnalyze}
+              disabled={!bidText.trim()}
+              loading={loading}
+              size="lg"
+              className="flex-1"
             >
-              엑셀 다운로드
-            </button>
-          )}
-        </div>
+              AI 분석 시작
+            </Button>
 
-        {error && (
-          <div
-            id="bid-error-message"
-            role="alert"
-            aria-live="polite"
-            className="mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-400"
-          >
-            {error}
+            {result && (
+              <Button
+                onClick={handleDownloadExcel}
+                disabled={loading}
+                color="success"
+                size="lg"
+                leftIcon={
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                }
+              >
+                엑셀 다운로드
+              </Button>
+            )}
           </div>
-        )}
-      </div>
+        </CardContent>
+      </Card>
 
       {result && (
-        <div className="overflow-hidden rounded-xl border border-olive-200 bg-white dark:border-olive-800 dark:bg-olive-900">
+        <Card padding="none">
           <div
             role="tablist"
             aria-label="분석 결과 탭"
@@ -278,9 +255,9 @@ export function BidAnalyzer() {
                           <span className="font-medium text-olive-950 dark:text-white">
                             {item.항목}
                           </span>
-                          <span className="rounded bg-olive-200 px-2 py-1 text-sm text-olive-700 dark:bg-olive-700 dark:text-olive-300">
+                          <Badge variant="soft" color="primary" size="sm">
                             {item.배점}점
-                          </span>
+                          </Badge>
                         </div>
                         <p className="text-sm text-olive-600 dark:text-olive-400">
                           {item.세부기준}
@@ -310,23 +287,19 @@ export function BidAnalyzer() {
                             : 'bg-olive-50 dark:bg-olive-800'
                         }`}
                       >
-                        <input
-                          type="checkbox"
+                        <Checkbox
                           aria-label={`${item.서류명} 준비 완료`}
-                          className="h-4 w-4 rounded border-olive-300 bg-olive-100 dark:border-olive-600 dark:bg-olive-700"
                         />
                         <span className="flex-1 text-olive-700 dark:text-olive-300">
                           {item.서류명}
                         </span>
-                        <span
-                          className={`rounded px-2 py-1 text-xs ${
-                            item.필수여부 === '필수'
-                              ? 'bg-red-100 text-red-600 dark:bg-red-500/20 dark:text-red-400'
-                              : 'bg-olive-200 text-olive-600 dark:bg-olive-700 dark:text-olive-400'
-                          }`}
+                        <Badge
+                          variant="soft"
+                          color={item.필수여부 === '필수' ? 'danger' : 'default'}
+                          size="sm"
                         >
                           {item.필수여부}
-                        </span>
+                        </Badge>
                       </div>
                     ))}
                   </div>
@@ -341,9 +314,17 @@ export function BidAnalyzer() {
                 <h3 className="mb-4 text-lg font-semibold text-olive-950 dark:text-white">
                   UNIO AI 분석 결과
                 </h3>
-                <div className={`mb-6 rounded-xl p-6 ${getFitnessColor(result.UNIO추천.적합도 ?? '')}`}>
-                  <div className="mb-1 text-sm opacity-80">입찰 적합도</div>
-                  <div className="text-3xl font-bold">{result.UNIO추천.적합도}</div>
+                <div className="mb-6 rounded-xl bg-olive-50 p-6 dark:bg-olive-800">
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="text-sm text-olive-500 dark:text-olive-400">입찰 적합도</span>
+                    <Badge
+                      variant="solid"
+                      color={getFitnessColor(result.UNIO추천.적합도 ?? '')}
+                      size="lg"
+                    >
+                      {result.UNIO추천.적합도 || '-'}
+                    </Badge>
+                  </div>
                 </div>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div className="rounded-lg bg-olive-50 p-4 dark:bg-olive-800">
@@ -372,7 +353,7 @@ export function BidAnalyzer() {
               </div>
             )}
           </div>
-        </div>
+        </Card>
       )}
     </div>
   )

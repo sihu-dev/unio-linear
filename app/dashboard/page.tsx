@@ -16,17 +16,17 @@ import {
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-olive-50 dark:bg-[#08090A]">
+    <div className="min-h-screen bg-page">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-olive-950/10 bg-white/80 backdrop-blur-sm dark:border-white/10 dark:bg-[#08090A]/80">
+      <header className="header-blur sticky top-0 z-50">
         <Container>
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-8">
-              <Link href="/" className="text-xl font-bold tracking-tight text-olive-950 dark:text-white">
+              <Link href="/" className="text-xl font-bold tracking-tight text-olive-950 dark:text-white linear-tracking">
                 UNIO
               </Link>
               <nav className="hidden items-center gap-6 md:flex" aria-label="메인 네비게이션">
-                <Link href="/dashboard" className="text-sm font-medium text-[#5E6AD2]" aria-current="page">
+                <Link href="/dashboard" className="text-sm font-medium text-linear-purple" aria-current="page">
                   대시보드
                 </Link>
                 <a
@@ -66,7 +66,7 @@ export default function DashboardPage() {
                 <span className="absolute right-1.5 top-1.5 size-2 rounded-full bg-red-500" aria-label="새 알림 있음" />
               </button>
               <div className="flex items-center gap-3">
-                <div className="size-8 rounded-full bg-[#5E6AD2]" aria-hidden="true" />
+                <div className="size-8 rounded-full bg-linear-purple" aria-hidden="true" />
                 <span className="hidden text-sm font-medium text-olive-950 dark:text-white md:block">
                   김대표
                 </span>

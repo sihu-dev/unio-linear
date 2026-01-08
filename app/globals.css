@@ -1,9 +1,11 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Fonts */
   --font-display: var(--font-instrument-serif), 'Instrument Serif', serif;
   --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
 
+  /* Olive Palette */
   --color-olive-50: oklch(98.8% 0.003 106.5);
   --color-olive-100: oklch(96.6% 0.005 106.5);
   --color-olive-200: oklch(93% 0.007 106.5);
@@ -15,6 +17,21 @@
   --color-olive-800: oklch(28.6% 0.016 107.4);
   --color-olive-900: oklch(22.8% 0.013 107.4);
   --color-olive-950: oklch(15.3% 0.006 107.1);
+
+  /* Linear Purple (IR Deck) */
+  --color-accent: #5E6AD2;
+  --color-accent-light: #6B77E0;
+  --color-accent-dark: #4F5BC3;
+
+  /* Linear Dark Background */
+  --color-background: #08090A;
+  --color-foreground: #F7F8F8;
+
+  /* Linear Design Tokens */
+  --border-linear: 0.8px;
+  --tracking-linear: -0.13px;
+  --ease-linear: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-linear: 200ms;
 }
 
 @layer base {
@@ -26,7 +43,73 @@
     scroll-padding-top: var(--scroll-padding-top);
 
     @variant dark {
-      background-color: var(--color-olive-950);
+      background-color: var(--color-background);
     }
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Semantic Text Classes */
+  .text-primary {
+    @apply text-olive-950 dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-olive-600 dark:text-olive-400;
+  }
+
+  .text-muted {
+    @apply text-olive-500 dark:text-olive-400;
+  }
+
+  /* Surface Classes */
+  .surface-card {
+    @apply bg-white dark:bg-white/5 border border-olive-950/10 dark:border-white/10 rounded-xl;
+  }
+
+  .surface-muted {
+    @apply bg-olive-50 dark:bg-olive-800 rounded-lg;
+  }
+
+  /* Linear Page Background */
+  .bg-page {
+    @apply bg-olive-50 dark:bg-[#08090A];
+  }
+
+  /* Linear Header */
+  .header-blur {
+    @apply bg-white/80 dark:bg-[#08090A]/80 backdrop-blur-sm border-b border-olive-950/10 dark:border-white/10;
+  }
+}
+
+@layer utilities {
+  /* Linear Design Utilities */
+  .linear-tracking {
+    letter-spacing: var(--tracking-linear);
+  }
+
+  .linear-transition {
+    transition: all var(--duration-linear) var(--ease-linear);
+  }
+
+  .border-linear {
+    border-width: var(--border-linear);
+  }
+
+  /* Focus Ring Utility */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-olive-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-olive-950;
   }
 }
