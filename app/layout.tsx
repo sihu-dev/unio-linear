@@ -16,11 +16,20 @@ import {
   NavbarWithLinksActionsAndCenteredLogo,
 } from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Oatmeal Kit Demo',
+  title: 'UNIO - Pool SI 스마트공장 AI 플랫폼',
+  description:
+    '52세 김 대표도 10분 만에 AI 공장을 갖습니다. OTT칩 50만원으로 시작하는 스마트공장. 1,932개 공장이 AI를 기다립니다.',
+  keywords: ['스마트공장', 'AI', 'Pool SI', 'OTT칩', '제조업', 'MES', '자동화'],
+  authors: [{ name: 'UNILAB' }],
+  openGraph: {
+    title: 'UNIO - Pool SI 스마트공장 AI 플랫폼',
+    description: '52세 김 대표도 10분 만에 AI 공장을 갖습니다.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
 }
 
 export default function RootLayout({
@@ -29,11 +38,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet"
@@ -45,38 +57,25 @@ export default function RootLayout({
             id="navbar"
             links={
               <>
-                <NavbarLink href="/pricing">Pricing</NavbarLink>
-                <NavbarLink href="/about">About</NavbarLink>
-                <NavbarLink href="#">Docs</NavbarLink>
-                <NavbarLink href="#" className="sm:hidden">
-                  Log in
+                <NavbarLink href="/pricing">요금제</NavbarLink>
+                <NavbarLink href="/about">회사소개</NavbarLink>
+                <NavbarLink href="/dashboard">대시보드</NavbarLink>
+                <NavbarLink href="/analyze-bid" className="sm:hidden">
+                  입찰분석
                 </NavbarLink>
               </>
             }
             logo={
               <NavbarLogo href="/">
-                <Image
-                  src="/img/logos/oatmeal-instrument-color-olive-950.svg"
-                  alt="Oatmeal"
-                  className="dark:hidden"
-                  width={85}
-                  height={28}
-                />
-                <Image
-                  src="/img/logos/oatmeal-instrument-color-white.svg"
-                  alt="Oatmeal"
-                  className="not-dark:hidden"
-                  width={85}
-                  height={28}
-                />
+                <span className="text-xl font-bold tracking-tight text-olive-950 dark:text-white">UNIO</span>
               </NavbarLogo>
             }
             actions={
               <>
-                <PlainButtonLink href="#" className="max-sm:hidden">
-                  Log in
+                <PlainButtonLink href="/analyze-bid" className="max-sm:hidden">
+                  입찰분석
                 </PlainButtonLink>
-                <ButtonLink href="#">Get started</ButtonLink>
+                <ButtonLink href="/analyze-bid">무료 체험</ButtonLink>
               </>
             }
           />
@@ -87,11 +86,10 @@ export default function RootLayout({
             id="footer"
             cta={
               <NewsletterForm
-                headline="Stay in the loop"
+                headline="UNIO 소식 받기"
                 subheadline={
                   <p>
-                    Get customer support tips, product updates and customer stories that you can archive as soon as they
-                    arrive.
+                    스마트공장 트렌드, 신제품 소식, 고객 성공 사례를 이메일로 받아보세요.
                   </p>
                 }
                 action="#"
@@ -99,37 +97,35 @@ export default function RootLayout({
             }
             links={
               <>
-                <FooterCategory title="Product">
-                  <FooterLink href="#">Features</FooterLink>
-                  <FooterLink href="#">Pricing</FooterLink>
-                  <FooterLink href="#">Integrations</FooterLink>
+                <FooterCategory title="제품">
+                  <FooterLink href="/#features">기능 소개</FooterLink>
+                  <FooterLink href="/pricing">요금제</FooterLink>
+                  <FooterLink href="/analyze-bid">입찰분석 AI</FooterLink>
                 </FooterCategory>
-                <FooterCategory title="Company">
-                  <FooterLink href="#">About</FooterLink>
-                  <FooterLink href="#">Careers</FooterLink>
-                  <FooterLink href="#">Blog</FooterLink>
-                  <FooterLink href="#">Press Kit</FooterLink>
+                <FooterCategory title="회사">
+                  <FooterLink href="/about">회사소개</FooterLink>
+                  <FooterLink href="#">채용</FooterLink>
+                  <FooterLink href="#">블로그</FooterLink>
                 </FooterCategory>
-                <FooterCategory title="Resources">
-                  <FooterLink href="#">Help Center</FooterLink>
-                  <FooterLink href="#">API Docs</FooterLink>
-                  <FooterLink href="#">Status</FooterLink>
-                  <FooterLink href="#">Contact</FooterLink>
+                <FooterCategory title="지원">
+                  <FooterLink href="#">고객센터</FooterLink>
+                  <FooterLink href="#">API 문서</FooterLink>
+                  <FooterLink href="#">문의하기</FooterLink>
                 </FooterCategory>
-                <FooterCategory title="Legal">
-                  <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
-                  <FooterLink href="#">Terms of Service</FooterLink>
-                  <FooterLink href="#">Security</FooterLink>
+                <FooterCategory title="법적고지">
+                  <FooterLink href="/privacy-policy">개인정보처리방침</FooterLink>
+                  <FooterLink href="#">이용약관</FooterLink>
+                  <FooterLink href="#">보안정책</FooterLink>
                 </FooterCategory>
               </>
             }
-            fineprint="© 2025 Oatmeal, Inc."
+            fineprint="© 2025 UNILAB / 레인피플. All rights reserved."
             socialLinks={
               <>
                 <SocialLink href="https://x.com" name="X">
                   <XIcon />
                 </SocialLink>
-                <SocialLink href="https://github.com" name="GitHub">
+                <SocialLink href="https://github.com/sihu-dev/unio-linear" name="GitHub">
                   <GitHubIcon />
                 </SocialLink>
                 <SocialLink href="https://www.youtube.com" name="YouTube">
