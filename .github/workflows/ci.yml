@@ -33,7 +33,7 @@ jobs:
         run: pnpm test
 
   deploy-vercel:
-    if: github.ref == 'refs/heads/main' && secrets.VERCEL_TOKEN != ''
+    if: github.ref == 'refs/heads/main' && ${{ secrets.VERCEL_TOKEN != '' }}
     needs: ci
     runs-on: ubuntu-latest
     steps:

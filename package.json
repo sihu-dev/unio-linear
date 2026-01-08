@@ -5,7 +5,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "prettier": {
     "semi": false,
@@ -28,6 +31,7 @@
     "next": "^16",
     "react": "^19",
     "react-dom": "^19",
+    "server-only": "^0.0.1",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
@@ -41,6 +45,7 @@
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.16"
   }
 }

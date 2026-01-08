@@ -1,5 +1,6 @@
 // lib/excel.ts
 // UNIO 엑셀 생성 유틸리티 - 6개 시트 표준 포맷
+import 'server-only';
 
 import ExcelJS from "exceljs";
 

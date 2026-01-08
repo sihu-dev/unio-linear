@@ -1,16 +1,26 @@
 // lib/claude.ts
 // Claude API 연동 모듈 (Anthropic SDK 직접 사용)
+import 'server-only';
 
 import Anthropic from '@anthropic-ai/sdk';
 
-// Anthropic Client 인스턴스 (싱글톤)
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+// Anthropic Client 인스턴스 (지연 초기화)
+let client: Anthropic | null = null;
+
+function getClient(): Anthropic {
+  if (!client) {
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    if (!apiKey) {
+      throw new Error('ANTHROPIC_API_KEY 환경 변수가 설정되지 않았습니다.');
+    }
+    client = new Anthropic({ apiKey });
+  }
+  return client;
+}
 
 // 입찰 공고 분석
 export async function analyzeBid(bidText: string) {
-  const message = await client.messages.create({
+  const message = await getClient().messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 4096,
     system: `당신은 Pool SI(로봇 시스템 통합) 전문 입찰 분석가입니다.
@@ -102,7 +112,7 @@ export async function generateComplianceDoc(data: {
   metrics: Record<string, any>;
   template: string;
 }) {
-  const message = await client.messages.create({
+  const message = await getClient().messages.create({
     model: 'claude-3-5-haiku-20241022',
     max_tokens: 4096,
     system: `정부 지원사업 증빙 문서 작성 전문가입니다.
@@ -149,7 +159,7 @@ export async function generateCustomerReport(data: {
   assets: any[];
   events: any[];
 }) {
-  const message = await client.messages.create({
+  const message = await getClient().messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 4096,
     system: `Pool SI 전문 고객 리포트 작성 전문가입니다.
@@ -207,7 +217,7 @@ ${JSON.stringify(data.events, null, 2)}
 
 // 예방 정비 분석
 export async function analyzeMaintenanceSchedule(assets: any[], events: any[]) {
-  const message = await client.messages.create({
+  const message = await getClient().messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 4096,
     system: `설비 정비 전문가입니다.

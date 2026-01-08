@@ -47,3 +47,4 @@ oatmeal-template/
 *.zip
 *.zip:Zone.Identifier
 클로드*.zip
+test-results/
