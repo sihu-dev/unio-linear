@@ -1,69 +1,71 @@
 import { DocumentCentered } from '@/components/sections/document-centered'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: '개인정보처리방침 - UNIO',
+  description: 'UNIO 개인정보처리방침. 사용자의 개인정보를 안전하게 보호합니다.',
+}
 
 export default function Page() {
   return (
     <>
-      <DocumentCentered id="document" headline="Privacy Policy" subheadline={<p>Last updated on December 19, 2025.</p>}>
+      <DocumentCentered id="document" headline="개인정보처리방침" subheadline={<p>최종 수정일: 2025년 1월 8일</p>}>
         <p>
-          Company Inc. ("<strong>Company</strong>," "<strong>we</strong>," "<strong>us</strong>
-          ," or "<strong>our</strong>") respects your privacy and is committed to protecting your personal information.
-          This Privacy Policy describes, in general terms, how we collect, use, store, and protect information when you
-          interact with our websites, products, or services (collectively, the "<strong>Services</strong>"). This policy
-          is provided for informational purposes and is intended to be a general example only.
+          UNILAB ("<strong>회사</strong>", "<strong>우리</strong>", "<strong>저희</strong>")는 귀하의 개인정보를
+          존중하며 보호하기 위해 최선을 다하고 있습니다. 본 개인정보처리방침은 귀하가 당사의 웹사이트, 제품 또는
+          서비스(이하 "<strong>서비스</strong>")를 이용할 때 당사가 정보를 수집, 사용, 저장 및 보호하는 방법을
+          설명합니다.
         </p>
-        <h2>Information We Collect and How We Use It</h2>
+        <h2>수집하는 정보 및 이용 목적</h2>
         <p>
-          We may collect information that you voluntarily provide to us when you interact with the Services, such as
-          when you contact us, create an account, or otherwise communicate with us. This information may include basic
-          personal or account details, such as your name, email address, or similar contact information.
+          당사는 귀하가 서비스와 상호작용할 때 자발적으로 제공하는 정보를 수집할 수 있습니다. 여기에는 문의, 계정
+          생성 또는 기타 커뮤니케이션이 포함됩니다. 이 정보에는 이름, 이메일 주소 또는 유사한 연락처 정보와 같은 기본
+          개인정보가 포함될 수 있습니다.
         </p>
         <p>
-          We may also automatically collect limited technical or usage information when you use the Services. This may
-          include information such as browser type, device or operating system details, IP address, and general usage
-          data.
+          당사는 귀하가 서비스를 사용할 때 제한된 기술 또는 사용 정보를 자동으로 수집할 수도 있습니다. 여기에는
+          브라우저 유형, 기기 또는 운영 체제 세부 정보, IP 주소 및 일반적인 사용 데이터가 포함될 수 있습니다.
         </p>
-        <p>Information we collect may be used for purposes such as:</p>
+        <p>수집된 정보는 다음과 같은 목적으로 사용될 수 있습니다:</p>
         <ul>
-          <li>Providing and maintaining the Services</li>
-          <li>Responding to inquiries and communications</li>
-          <li>Improving features and functionality</li>
-          <li>Complying with applicable legal obligations</li>
+          <li>서비스 제공 및 유지</li>
+          <li>문의 및 커뮤니케이션 응대</li>
+          <li>기능 개선</li>
+          <li>관련 법적 의무 준수</li>
         </ul>
-        <h2>Sharing, Retention, and Security of Information</h2>
+        <h2>정보의 공유, 보관 및 보안</h2>
         <p>
-          We do not sell your personal information. We may share information with third-party service providers who
-          perform services on our behalf, such as hosting or technical support, and only to the extent necessary for
-          them to perform those services. We may also disclose information if required to do so by law or in response to
-          valid legal requests.
+          당사는 귀하의 개인정보를 판매하지 않습니다. 호스팅이나 기술 지원과 같이 당사를 대신하여 서비스를 수행하는
+          제3자 서비스 제공업체와 해당 서비스 수행에 필요한 범위 내에서만 정보를 공유할 수 있습니다. 또한 법률에 따라
+          요구되거나 유효한 법적 요청에 응하여 정보를 공개할 수 있습니다.
         </p>
         <p>
-          We retain information only for as long as reasonably necessary to fulfill the purposes described in this
-          Privacy Policy, unless a longer retention period is required or permitted by law.
+          당사는 본 개인정보처리방침에 설명된 목적을 달성하는 데 합리적으로 필요한 기간 동안만 정보를 보관하며, 법률에
+          의해 더 긴 보관 기간이 요구되거나 허용되는 경우는 예외로 합니다.
         </p>
         <p>
-          We take reasonable administrative, technical, and organizational measures designed to protect information from
-          unauthorized access, use, alteration, or disclosure. However, no method of transmission over the internet or
-          method of electronic storage is completely secure, and we cannot guarantee absolute security.
+          당사는 무단 접근, 사용, 변경 또는 공개로부터 정보를 보호하기 위해 합리적인 관리적, 기술적, 조직적 조치를
+          취합니다. 그러나 인터넷을 통한 전송 방법이나 전자 저장 방법이 완전히 안전한 것은 아니며, 절대적인 보안을
+          보장할 수 없습니다.
         </p>
-        <h2>Your Choices, Updates, and Contact Information</h2>
+        <h2>귀하의 선택, 업데이트 및 연락처</h2>
         <p>
-          You may choose not to provide certain information to us, though doing so may limit your ability to use some
-          features of the Services. Depending on your location, you may have certain rights regarding your personal
-          information under applicable laws.
+          귀하는 당사에 특정 정보를 제공하지 않을 수 있으나, 그렇게 하면 서비스의 일부 기능 사용이 제한될 수 있습니다.
+          귀하의 위치에 따라 관련 법률에 따른 개인정보에 관한 특정 권리가 있을 수 있습니다.
         </p>
         <p>
-          We may update this Privacy Policy from time to time. Any changes will be reflected by updating the "
-          <strong>Last updated</strong>" date at the top of this page. Continued use of the Services after any changes
-          indicates acceptance of the updated policy.
+          당사는 본 개인정보처리방침을 수시로 업데이트할 수 있습니다. 변경 사항은 이 페이지 상단의 "
+          <strong>최종 수정일</strong>"을 업데이트하여 반영됩니다. 변경 후 서비스를 계속 사용하면 업데이트된 정책에
+          동의하는 것으로 간주됩니다.
         </p>
-        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+        <p>본 개인정보처리방침에 관한 질문이 있으시면 아래로 연락해 주세요:</p>
         <p>
-          <strong>Company Inc.</strong>
+          <strong>UNILAB / 레인피플</strong>
           <br />
-          Email: <Link href="mailto:privacy@company.example">privacy@company.example</Link>
+          이메일: <Link href="mailto:privacy@unilab.kr">privacy@unilab.kr</Link>
           <br />
-          Address: 123 Demo Street, Example City, Country
+          주소: 서울특별시 강남구 테헤란로
         </p>
       </DocumentCentered>
     </>

@@ -5,7 +5,17 @@ import { HeroLeftAlignedWithPhoto } from '@/components/sections/hero-left-aligne
 import { Stat, StatsWithGraph } from '@/components/sections/stats-with-graph'
 import { TeamFourColumnGrid, TeamMember } from '@/components/sections/team-four-column-grid'
 import { TestimonialTwoColumnWithLargePhoto } from '@/components/sections/testimonial-two-column-with-large-photo'
+import type { Metadata } from 'next'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: '회사소개 - UNIO',
+  description: 'UNIO는 Pool SI 스마트공장 AI 플랫폼입니다. 중소 제조업체의 디지털 전환을 돕습니다.',
+  openGraph: {
+    title: '회사소개 - UNIO',
+    description: 'UNIO는 Pool SI 스마트공장 AI 플랫폼입니다.',
+  },
+}
 
 export default function Page() {
   return (
@@ -13,17 +23,17 @@ export default function Page() {
       {/* Hero */}
       <HeroLeftAlignedWithPhoto
         id="hero"
-        headline="Your customer success is our mission."
+        headline="제조업의 AI 전환, UNIO가 함께합니다"
         subheadline={
           <p>
-            We're on a mission to take the human element completely out of customer support — so your team can focus on
-            what matters most, profitability.
+            52세 김 대표님도 10분 만에 AI 공장을 가질 수 있습니다.
+            OTT칩 하나로 시작하는 스마트공장, UNIO가 Pool SI의 미래를 열어갑니다.
           </p>
         }
         photo={
           <Image
             src="/img/photos/1.webp"
-            alt=""
+            alt="UNIO 스마트공장 현장"
             width={1800}
             height={945}
             className="not-dark:bg-white/75 dark:bg-black/75"
@@ -33,48 +43,47 @@ export default function Page() {
       {/* Stats */}
       <StatsWithGraph
         id="stats"
-        eyebrow="Built for scale"
-        headline="The inbox powering customer conversations everywhere."
+        eyebrow="Pool SI 시장 현황"
+        headline="1,932개 공장이 AI를 기다리고 있습니다"
         subheadline={
           <p>
-            Oatmeal helps teams deliver personal, organized, and fast customer support across the world. From small
-            startups to enterprise teams, we process millions of messages each month — using a massive network of low
-            wage workers stationed around the globe.
+            전국 Pool SI 협력업체 2,460개사 중 78.5%가 아직 AI 시스템을 도입하지 못했습니다.
+            UNIO는 OTT칩 50만원으로 누구나 쉽게 스마트공장을 시작할 수 있게 합니다.
           </p>
         }
       >
-        <Stat stat="2M+" text="Emails manually processed every week across thousands of teams." />
-        <Stat stat="99.98%" text="Uptime — because your customers never stop complaining." />
+        <Stat stat="2,460+" text="Pool SI 전국 협력업체 수" />
+        <Stat stat="78.5%" text="AI 미도입 비율 - UNIO의 기회" />
       </StatsWithGraph>
       {/* Testimonial */}
       <TestimonialTwoColumnWithLargePhoto
         id="testimonial"
         quote={
           <p>
-            Ever since we started using Oatmeal, our customer satisfaction scores have skyrocketed. The personal touch
-            that their human-AI hybrid support provides is unparalleled.
+            UNIO 덕분에 입찰 서류 준비 시간이 3일에서 30분으로 줄었습니다.
+            이제 저도 대기업처럼 AI로 분석하고 견적을 냅니다.
           </p>
         }
         img={
           <Image
             src="/img/avatars/16-h-1000-w-1400.webp"
-            alt=""
+            alt="김영수 대표"
             className="not-dark:bg-white/75 dark:bg-black/75"
             width={1400}
             height={1000}
           />
         }
-        name="Lynn Marshall"
-        byline="Founder at Pine Labs"
+        name="김영수 대표"
+        byline="세진공업 (Pool SI 협력업체)"
       />
       {/* Team */}
       <TeamFourColumnGrid
         id="team"
-        headline="Our leadership team"
+        headline="UNILAB 팀"
         subheadline={
           <p>
-            Oatmeals's leadership team combines decades of experience in private equity, where they honed their skills
-            in cost-cutting and maximizing shareholder value.
+            제조업 현장 경험과 AI 기술을 겸비한 전문가들이 모였습니다.
+            현장의 문제를 기술로 해결합니다.
           </p>
         }
       >
@@ -82,122 +91,70 @@ export default function Page() {
           img={
             <Image
               src="/img/avatars/1-h-1000-w-800.webp"
-              alt=""
+              alt="이시후 대표"
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Leslie Alexander"
-          byline="Co-Founder / CEO"
+          name="이시후"
+          byline="대표이사 / CEO"
         />
         <TeamMember
           img={
             <Image
               src="/img/avatars/2-h-1000-w-800.webp"
-              alt=""
+              alt="박민수 CTO"
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Michael Foster"
-          byline="Co-Founder / CTO"
+          name="박민수"
+          byline="기술이사 / CTO"
         />
         <TeamMember
           img={
             <Image
               src="/img/avatars/7-h-1000-w-800.webp"
-              alt=""
+              alt="김지현 이사"
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Dries Vincent"
-          byline="Business Relations"
+          name="김지현"
+          byline="사업개발 이사"
         />
         <TeamMember
           img={
             <Image
               src="/img/avatars/4-h-1000-w-800.webp"
-              alt=""
+              alt="정수연 팀장"
               className="not-dark:bg-white/75 dark:bg-black/75"
               width={800}
               height={1000}
             />
           }
-          name="Lindsay Walton"
-          byline="Front-end Developer"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/5-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Noor Hasan"
-          byline="Designer"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/6-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Tom Cook"
-          byline="Director of Product"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/8-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Whitney Francis"
-          byline="Copywriter"
-        />
-        <TeamMember
-          img={
-            <Image
-              src="/img/avatars/3-h-1000-w-800.webp"
-              alt=""
-              className="not-dark:bg-white/75 dark:bg-black/75"
-              width={800}
-              height={1000}
-            />
-          }
-          name="Leonard Wu"
-          byline="Senior Designer"
+          name="정수연"
+          byline="제품개발 팀장"
         />
       </TeamFourColumnGrid>
       {/* Call To Action */}
       <CallToActionSimple
         id="call-to-action"
-        headline="Have anymore questions?"
+        headline="스마트공장, 지금 시작하세요"
         subheadline={
-          <p>Chat to someone on our sales team, who will make promises about our roadmap that we won't keep.</p>
+          <p>UNIO 전문가가 귀사에 맞는 AI 솔루션을 제안해 드립니다.</p>
         }
         cta={
           <div className="flex items-center gap-4">
-            <ButtonLink href="#" size="lg">
-              Chat with us
+            <ButtonLink href="/analyze-bid" size="lg">
+              무료 입찰 분석
             </ButtonLink>
 
-            <PlainButtonLink href="#" size="lg">
-              Book a demo <ChevronIcon />
+            <PlainButtonLink href="/pricing" size="lg">
+              요금제 보기 <ChevronIcon />
             </PlainButtonLink>
           </div>
         }

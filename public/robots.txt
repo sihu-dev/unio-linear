@@ -1,0 +1,13 @@
+# UNIO - Pool SI 스마트공장 AI 플랫폼
+# https://unio-linear.vercel.app
+
+User-agent: *
+Allow: /
+
+# 크롤링 제외
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+
+# 사이트맵
+Sitemap: https://unio-linear.vercel.app/sitemap.xml

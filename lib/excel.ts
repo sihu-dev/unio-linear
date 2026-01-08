@@ -3,6 +3,7 @@
 import 'server-only';
 
 import ExcelJS from "exceljs";
+import type { BidAnalysisResult, Equipment, EvaluationCriteria, RequiredDocument } from '@/types';
 
 // UNIO 표준 색상
 const COLORS = {
@@ -215,7 +216,7 @@ function applyDataStyle(row: ExcelJS.Row, isAlternate: boolean = false) {
 export function createUNIOSheet(
   workbook: ExcelJS.Workbook,
   sheetType: keyof typeof UNIO_SHEET_SCHEMAS,
-  data: Record<string, any>[] = []
+  data: Record<string, string | number | boolean | null>[] = []
 ) {
   const schema = UNIO_SHEET_SCHEMAS[sheetType];
   const sheet = workbook.addWorksheet(schema.name);
@@ -244,7 +245,7 @@ export function createUNIOSheet(
 }
 
 // 입찰 분석 엑셀 생성
-export async function createBidAnalysisExcel(analysis: any): Promise<Buffer> {
+export async function createBidAnalysisExcel(analysis: BidAnalysisResult): Promise<Buffer> {
   const workbook = createWorkbook();
 
   // Sheet 1: 사업개요
@@ -283,8 +284,8 @@ export async function createBidAnalysisExcel(analysis: any): Promise<Buffer> {
   ];
   applyHeaderStyle(sheet2.getRow(1));
 
-  const equipment = analysis.요구설비 || [];
-  equipment.forEach((item: any, i: number) => {
+  const equipment: Equipment[] = analysis.요구설비 || [];
+  equipment.forEach((item: Equipment, i: number) => {
     const excelRow = sheet2.addRow({
       no: i + 1,
       name: item.품명 || "-",
@@ -305,8 +306,8 @@ export async function createBidAnalysisExcel(analysis: any): Promise<Buffer> {
   ];
   applyHeaderStyle(sheet3.getRow(1));
 
-  const criteria = analysis.평가기준 || [];
-  criteria.forEach((item: any, i: number) => {
+  const criteria: EvaluationCriteria[] = analysis.평가기준 || [];
+  criteria.forEach((item: EvaluationCriteria, i: number) => {
     const excelRow = sheet3.addRow({
       item: item.항목 || "-",
       score: item.배점 || "-",
@@ -326,8 +327,8 @@ export async function createBidAnalysisExcel(analysis: any): Promise<Buffer> {
   ];
   applyHeaderStyle(sheet4.getRow(1));
 
-  const documents = analysis.제출서류 || [];
-  documents.forEach((item: any, i: number) => {
+  const documents: RequiredDocument[] = analysis.제출서류 || [];
+  documents.forEach((item: RequiredDocument, i: number) => {
     const excelRow = sheet4.addRow({
       no: i + 1,
       name: item.서류명 || "-",
@@ -384,7 +385,7 @@ export async function createBidAnalysisExcel(analysis: any): Promise<Buffer> {
   ];
   applyHeaderStyle(sheet6.getRow(1));
 
-  equipment.forEach((item: any, i: number) => {
+  equipment.forEach((item: Equipment, i: number) => {
     const excelRow = sheet6.addRow({
       no: i + 1,
       name: item.품명 || "-",

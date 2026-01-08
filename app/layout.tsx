@@ -19,16 +19,30 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'UNIO - Pool SI 스마트공장 AI 플랫폼',
+  title: {
+    default: 'UNIO - Pool SI 스마트공장 AI 플랫폼',
+    template: '%s | UNIO',
+  },
   description:
     '52세 김 대표도 10분 만에 AI 공장을 갖습니다. OTT칩 50만원으로 시작하는 스마트공장. 1,932개 공장이 AI를 기다립니다.',
   keywords: ['스마트공장', 'AI', 'Pool SI', 'OTT칩', '제조업', 'MES', '자동화'],
   authors: [{ name: 'UNILAB' }],
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  metadataBase: new URL('https://unio-linear.vercel.app'),
   openGraph: {
     title: 'UNIO - Pool SI 스마트공장 AI 플랫폼',
     description: '52세 김 대표도 10분 만에 AI 공장을 갖습니다.',
     type: 'website',
     locale: 'ko_KR',
+    siteName: 'UNIO',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UNIO - Pool SI 스마트공장 AI 플랫폼',
+    description: '52세 김 대표도 10분 만에 AI 공장을 갖습니다.',
   },
 }
 
@@ -53,6 +67,13 @@ export default function RootLayout({
       </head>
       <body>
         <>
+          {/* Skip link for accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-olive-950 focus:px-4 focus:py-2 focus:text-white dark:focus:bg-white dark:focus:text-olive-950"
+          >
+            본문으로 건너뛰기
+          </a>
           <NavbarWithLinksActionsAndCenteredLogo
             id="navbar"
             links={

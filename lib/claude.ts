@@ -3,6 +3,7 @@
 import 'server-only';
 
 import Anthropic from '@anthropic-ai/sdk';
+import type { MaintenanceJob, MaintenanceAsset, MaintenanceEvent } from '@/types';
 
 // Anthropic Client 인스턴스 (지연 초기화)
 let client: Anthropic | null = null;
@@ -99,8 +100,7 @@ ${bidText}
       return JSON.parse(jsonMatch[0]);
     }
     throw new Error('JSON not found in response');
-  } catch (e) {
-    console.error('Parse error:', e);
+  } catch (_e) {
     return { error: 'Failed to parse response', raw: text };
   }
 }
@@ -109,7 +109,7 @@ ${bidText}
 export async function generateComplianceDoc(data: {
   projectName: string;
   period: string;
-  metrics: Record<string, any>;
+  metrics: Record<string, string | number | boolean>;
   template: string;
 }) {
   const message = await getClient().messages.create({
@@ -155,9 +155,9 @@ export async function generateComplianceDoc(data: {
 export async function generateCustomerReport(data: {
   clientName: string;
   period: { start: string; end: string };
-  jobs: any[];
-  assets: any[];
-  events: any[];
+  jobs: MaintenanceJob[];
+  assets: MaintenanceAsset[];
+  events: MaintenanceEvent[];
 }) {
   const message = await getClient().messages.create({
     model: 'claude-sonnet-4-20250514',
@@ -216,7 +216,7 @@ ${JSON.stringify(data.events, null, 2)}
 }
 
 // 예방 정비 분석
-export async function analyzeMaintenanceSchedule(assets: any[], events: any[]) {
+export async function analyzeMaintenanceSchedule(assets: MaintenanceAsset[], events: MaintenanceEvent[]) {
   const message = await getClient().messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 4096,

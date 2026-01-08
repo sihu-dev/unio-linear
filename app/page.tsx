@@ -318,7 +318,7 @@ export default function Page() {
               수기 검사 대비 정확도가 크게 향상됐어요.
             </p>
           }
-          img={<Image src="/img/avatars/10-size-160.webp" alt="" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
+          img={<Image src="/img/avatars/10-size-160.webp" alt="CM TECH 대표" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
           name="CM TECH"
           byline="용접 자동화 전문"
         />
@@ -329,7 +329,7 @@ export default function Page() {
               엑셀 리포트로 현장 관리자도 쉽게 씁니다.
             </p>
           }
-          img={<Image src="/img/avatars/15-size-160.webp" alt="" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
+          img={<Image src="/img/avatars/15-size-160.webp" alt="벽산 담당자" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
           name="벽산"
           byline="건자재 제조"
         />
@@ -340,7 +340,7 @@ export default function Page() {
               월 40시간 수기 작업이 4시간으로 줄었습니다.
             </p>
           }
-          img={<Image src="/img/avatars/13-size-160.webp" alt="" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
+          img={<Image src="/img/avatars/13-size-160.webp" alt="삼웅철강 담당자" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
           name="삼웅철강"
           byline="철강 가공"
         />
@@ -351,7 +351,7 @@ export default function Page() {
               새벽 5시 출근이 8시로 바뀌었어요.
             </p>
           }
-          img={<Image src="/img/avatars/12-size-160.webp" alt="" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
+          img={<Image src="/img/avatars/12-size-160.webp" alt="김영호 대표" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
           name="김영호 대표"
           byline="중소 제조업체 대표"
         />
@@ -362,7 +362,7 @@ export default function Page() {
               10년 된 구형 로봇에도 바로 붙였습니다.
             </p>
           }
-          img={<Image src="/img/avatars/11-size-160.webp" alt="" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
+          img={<Image src="/img/avatars/11-size-160.webp" alt="박지현 팀장" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
           name="박지현 팀장"
           byline="생산관리 담당"
         />
@@ -373,7 +373,7 @@ export default function Page() {
               버튼 한 번이면 끝나요. 진짜 편해졌습니다.
             </p>
           }
-          img={<Image src="/img/avatars/14-size-160.webp" alt="" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
+          img={<Image src="/img/avatars/14-size-160.webp" alt="이승훈 이사" className="not-dark:bg-white/75 dark:bg-black/75" width={160} height={160} />}
           name="이승훈 이사"
           byline="경영지원실"
         />

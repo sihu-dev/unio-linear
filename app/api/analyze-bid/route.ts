@@ -61,12 +61,10 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    console.log('[Analyze-Bid] Analyzing bid with Claude AI...')
     const analysis = await analyzeBid(bidText)
 
     if (analysis.error) {
-      // Log internal error for debugging, return safe message to client
-      console.error('[Analyze-Bid] Analysis error:', analysis.error)
+      // Internal error - return safe message to client
       return NextResponse.json(
         {
           error: ERROR_MESSAGES[ERROR_CODES.ANALYSIS_FAILED],
@@ -113,9 +111,8 @@ export async function POST(req: NextRequest) {
       },
       { status: 400 }
     )
-  } catch (error) {
-    // Log internal error for debugging, return safe message to client
-    console.error('[Analyze-Bid] Unexpected error:', error)
+  } catch (_error) {
+    // Internal error - return safe message to client
     return NextResponse.json(
       {
         error: ERROR_MESSAGES[ERROR_CODES.SERVER_ERROR],
