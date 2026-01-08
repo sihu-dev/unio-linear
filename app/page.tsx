@@ -97,27 +97,27 @@ export default function Page() {
           <LogoGrid>
             <Logo>
               <Image src="/img/logos/9-color-black-height-32.svg" className="dark:hidden" alt="CM TECH" width={51} height={32} />
-              <Image src="/img/logos/9-color-white-height-32.svg" className="not-dark:hidden" alt="CM TECH" width={51} height={32} />
+              <Image src="/img/logos/9-color-white-height-32.svg" className="bg-black/75 not-dark:hidden" alt="CM TECH" width={51} height={32} />
             </Logo>
             <Logo>
               <Image src="/img/logos/10-color-black-height-32.svg" className="dark:hidden" alt="벽산" width={70} height={32} />
-              <Image src="/img/logos/10-color-white-height-32.svg" className="not-dark:hidden" alt="벽산" width={70} height={32} />
+              <Image src="/img/logos/10-color-white-height-32.svg" className="bg-black/75 not-dark:hidden" alt="벽산" width={70} height={32} />
             </Logo>
             <Logo>
               <Image src="/img/logos/11-color-black-height-32.svg" className="dark:hidden" alt="삼웅철강" width={100} height={32} />
-              <Image src="/img/logos/11-color-white-height-32.svg" className="not-dark:hidden" alt="삼웅철강" width={100} height={32} />
+              <Image src="/img/logos/11-color-white-height-32.svg" className="bg-black/75 not-dark:hidden" alt="삼웅철강" width={100} height={32} />
             </Logo>
             <Logo>
               <Image src="/img/logos/12-color-black-height-32.svg" className="dark:hidden" alt="화낙" width={85} height={32} />
-              <Image src="/img/logos/12-color-white-height-32.svg" className="not-dark:hidden" alt="화낙" width={85} height={32} />
+              <Image src="/img/logos/12-color-white-height-32.svg" className="bg-black/75 not-dark:hidden" alt="화낙" width={85} height={32} />
             </Logo>
             <Logo>
               <Image src="/img/logos/13-color-black-height-32.svg" className="dark:hidden" alt="ABB" width={75} height={32} />
-              <Image src="/img/logos/13-color-white-height-32.svg" className="not-dark:hidden" alt="ABB" width={75} height={32} />
+              <Image src="/img/logos/13-color-white-height-32.svg" className="bg-black/75 not-dark:hidden" alt="ABB" width={75} height={32} />
             </Logo>
             <Logo>
               <Image src="/img/logos/8-color-black-height-32.svg" className="dark:hidden" alt="쿠카" width={85} height={32} />
-              <Image src="/img/logos/8-color-white-height-32.svg" className="not-dark:hidden" alt="쿠카" width={85} height={32} />
+              <Image src="/img/logos/8-color-white-height-32.svg" className="bg-black/75 not-dark:hidden" alt="쿠카" width={85} height={32} />
             </Logo>
           </LogoGrid>
         }

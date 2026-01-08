@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
@@ -282,13 +283,13 @@ export default function DashboardPage() {
         <Container>
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-8">
-              <a href="/" className="text-xl font-bold tracking-tight text-olive-950 dark:text-white">
+              <Link href="/" className="text-xl font-bold tracking-tight text-olive-950 dark:text-white">
                 UNIO
-              </a>
+              </Link>
               <nav className="hidden items-center gap-6 md:flex">
-                <a href="/dashboard" className="text-sm font-medium text-[#5E6AD2]">
+                <Link href="/dashboard" className="text-sm font-medium text-[#5E6AD2]">
                   대시보드
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="text-sm font-medium text-olive-600 hover:text-olive-950 dark:text-olive-400 dark:hover:text-white"
