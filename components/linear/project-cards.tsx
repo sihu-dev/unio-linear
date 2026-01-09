@@ -96,25 +96,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 export const ProjectCards: React.FC = () => {
   const projects: ProjectCardProps[] = [
     {
-      title: 'OTT칩 개발',
-      description: '2세대 설비를 10분만에 IoT화하는 핵심 하드웨어',
-      icon: <Factory className="w-5 h-5" />,
+      title: 'AutoPath',
+      description: 'AI 기반 로봇 경로 자동 생성 - 72시간 → 30분 (80% 단축)',
+      icon: <Zap className="w-5 h-5" />,
       progress: 100,
       status: 'completed',
+      itemCount: 11
+    },
+    {
+      title: 'RoboTwin',
+      description: '디지털 트윈 시뮬레이션 - 실물 테스트 비용 50% 절감',
+      icon: <Factory className="w-5 h-5" />,
+      progress: 85,
+      status: 'in_progress',
       itemCount: 8
     },
     {
-      title: '엑셀 브릿지',
-      description: '6개 시트 자동 동기화로 데이터 수집 자동화',
+      title: 'AI 예지보전',
+      description: '설비 이상 사전 감지 - 다운타임 70% 감소, Claude API 연동',
       icon: <BarChart3 className="w-5 h-5" />,
-      progress: 85,
-      status: 'in_progress',
-      itemCount: 12
-    },
-    {
-      title: 'AI 엔진',
-      description: '85% 불량 예측 정확도 달성 - 도메인 특화 AI',
-      icon: <Zap className="w-5 h-5" />,
       progress: 92,
       status: 'in_progress',
       itemCount: 15

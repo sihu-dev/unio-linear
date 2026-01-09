@@ -23,9 +23,9 @@ export default function HomePage() {
               lineHeight: "1.1",
             }}
           >
-            엑셀처럼 쉽고,{" "}
+            72시간 → 30분,{" "}
             <span className="bg-gradient-to-r from-[#5E6AD2] to-[#7C3AED] bg-clip-text text-transparent">
-              AI처럼 강력하게
+              AI가 로봇을 프로그래밍합니다
             </span>
           </h1>
           <p
@@ -37,26 +37,26 @@ export default function HomePage() {
               color: "rgb(208, 214, 224)",
             }}
           >
-            Pool 로봇SI 전용 스마트 제조 플랫폼
+            스마트공장 Pool 2,460개사를 위한 협동로봇 AI 플랫폼
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <div className="flex items-center gap-2 text-sm" style={{ color: "rgb(138, 143, 152)" }}>
               <svg className="w-5 h-5 text-[#5E6AD2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>10분 설치</span>
+              <span>경로 생성 80% 단축</span>
             </div>
             <div className="flex items-center gap-2 text-sm" style={{ color: "rgb(138, 143, 152)" }}>
               <svg className="w-5 h-5 text-[#5E6AD2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>0.7개월 ROI</span>
+              <span>테스트 비용 50% 절감</span>
             </div>
             <div className="flex items-center gap-2 text-sm" style={{ color: "rgb(138, 143, 152)" }}>
               <svg className="w-5 h-5 text-[#5E6AD2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>Pool 1,932개사 대상</span>
+              <span>Pool 2,460개사 대상</span>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
