@@ -1,8 +1,14 @@
 import { auth } from '@/lib/auth';
+import { NextResponse } from 'next/server';
 
 export default auth((req) => {
-  const isLoggedIn = !!req.auth;
+  const isLoggedIn = !!req.auth?.user;
   const { pathname } = req.nextUrl;
+
+  // Skip API and NextAuth routes
+  if (pathname.startsWith('/api/')) {
+    return NextResponse.next();
+  }
 
   // Protected routes
   const protectedRoutes = ['/dashboard'];
@@ -14,17 +20,17 @@ export default auth((req) => {
 
   // Redirect logged-in users away from auth pages
   if (isAuthRoute && isLoggedIn) {
-    return Response.redirect(new URL('/dashboard', req.nextUrl));
+    return NextResponse.redirect(new URL('/dashboard', req.nextUrl));
   }
 
   // Redirect unauthenticated users to login
   if (isProtected && !isLoggedIn) {
     const redirectUrl = new URL('/auth/login', req.nextUrl);
     redirectUrl.searchParams.set('callbackUrl', pathname);
-    return Response.redirect(redirectUrl);
+    return NextResponse.redirect(redirectUrl);
   }
 
-  return;
+  return NextResponse.next();
 });
 
 export const config = {

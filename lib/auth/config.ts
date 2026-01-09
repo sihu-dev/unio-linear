@@ -96,21 +96,5 @@ export const authConfig: NextAuthConfig = {
       }
       return session;
     },
-    async authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-      const isOnAuth = nextUrl.pathname.startsWith('/auth');
-
-      if (isOnDashboard) {
-        if (isLoggedIn) return true;
-        return false; // Redirect to login
-      }
-
-      if (isOnAuth && isLoggedIn) {
-        return Response.redirect(new URL('/dashboard', nextUrl));
-      }
-
-      return true;
-    },
   },
 };
