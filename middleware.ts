@@ -1,56 +1,32 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { auth } from '@/lib/auth';
 
-// 보호된 라우트 정의
-const protectedRoutes = ['/dashboard']
-const authRoutes = ['/login', '/register']
+export default auth((req) => {
+  const isLoggedIn = !!req.auth;
+  const { pathname } = req.nextUrl;
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
+  // Protected routes
+  const protectedRoutes = ['/dashboard'];
+  const isProtected = protectedRoutes.some((route) => pathname.startsWith(route));
 
-  // API 요청에 대한 CORS 헤더 추가
-  if (pathname.startsWith('/api/')) {
-    const response = NextResponse.next()
+  // Auth routes (login, register)
+  const authRoutes = ['/auth/login', '/auth/register'];
+  const isAuthRoute = authRoutes.some((route) => pathname.startsWith(route));
 
-    // Security headers
-    response.headers.set('X-Content-Type-Options', 'nosniff')
-    response.headers.set('X-Frame-Options', 'DENY')
-    response.headers.set('X-XSS-Protection', '1; mode=block')
-    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-
-    return response
+  // Redirect logged-in users away from auth pages
+  if (isAuthRoute && isLoggedIn) {
+    return Response.redirect(new URL('/dashboard', req.nextUrl));
   }
 
-  // 보호된 라우트 체크 (추후 인증 로직 추가)
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    pathname.startsWith(route)
-  )
-
-  if (isProtectedRoute) {
-    // TODO: 실제 인증 토큰 검증 로직 추가
-    // const token = request.cookies.get('auth-token')
-    // if (!token) {
-    //   return NextResponse.redirect(new URL('/login', request.url))
-    // }
+  // Redirect unauthenticated users to login
+  if (isProtected && !isLoggedIn) {
+    const redirectUrl = new URL('/auth/login', req.nextUrl);
+    redirectUrl.searchParams.set('callbackUrl', pathname);
+    return Response.redirect(redirectUrl);
   }
 
-  // 기본 보안 헤더 추가
-  const response = NextResponse.next()
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-Frame-Options', 'DENY')
-
-  return response
-}
+  return;
+});
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public files (public folder)
-     */
-    '/((?!_next/static|_next/image|favicon.ico|img/|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
-}
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+};

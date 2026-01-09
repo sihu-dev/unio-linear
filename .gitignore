@@ -37,14 +37,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-oatmeal/
-oatmeal-olive-instrument.zip
-oatmeal-template/
 
-# UNIO specific
-*.docx
-*.docx:Zone.Identifier
-*.zip
-*.zip:Zone.Identifier
-클로드*.zip
-test-results/
+/lib/generated/prisma
